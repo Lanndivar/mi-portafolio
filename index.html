@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Portafolio de Videojuegos - Maurizio Landivar</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+      background-color: #f4f4f4;
+    }
+
+    h1, h2 {
+      color: #222;
+    }
+
+    .proyecto {
+      background-color: white;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 10px;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    }
+
+    a {
+      color: #0077cc;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #ff6600;
+    }
+
+    .titulo:hover {
+      color: red;
+      font-size: 24px;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      margin-top: 10px;
+    }
+
+    pre {
+      background-color: #eee;
+      padding: 10px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Portafolio de Maurizio Landivar</h1>
+  <p><strong>Descripción:</strong> Soy Maurizio Landivar un estudiante en la carrera de Lic. en producción y desarrollo de videojuegos.</p>
+
+  <hr>
+
+  <!-- Proyecto 1: Scratch -->
+  <div class="proyecto">
+    <h2 class="titulo">Scracth </h2>
+
+    <p><strong>Descripción:</strong> Este juego fue mi primer contacto con la creacion de videojuegos y no es algo muy complejo solo se centraba en esquivar al murcielago saltandole por encima.</p>
+
+    <p><strong>Video de Gameplay:</strong></p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/k9js4yMPAAc" frameborder="0" allowfullscreen></iframe>
+
+    <p><strong>Imagen del proyecto:</strong></p>
+    <img src="https://drive.google.com/uc?export=view&id=1ImgEjemplo" alt="Scratch TP" width="400">
+    <!-- 🔁 Reemplazá el ID de la imagen arriba si la subís a Drive -->
+
+    <p><strong>Informe:</strong></p>
+    <p>El juego fue desarrollado en Scratch como ya lo habia dicho y no es algo muy complejo y tampoco esta completamente pulido pero es funcional.</p>
+  </div>
+
+  <!-- Proyecto 2: RPG Maker -->
+  <div class="proyecto">
+    <h2 class="titulo">Proyecto 2: A Bad Decision (RPG Maker)</h2>
+
+    <p><strong>Descripción:</strong> A Bad Decision es un juego de rol al estilo de Mad Father, To the moon o inclusive Omori pero claramente salvando las diferencias ya que esos son proyectos terminados y este solo seria como una demo tecnica.</p>
+
+    <p><strong>Descargar juego:</strong></p>
+    <a href="https://drive.google.com/file/d/1vwGPo7qVN_OJyc4ZBC9OZP71Jt1841ke/view?usp=sharing" target="_blank">Descargar A Bad Decision</a>
+
+    <p><strong>Carpeta del proyecto (imágenes e informe):</strong></p>
+    <a href="https://drive.google.com/drive/folders/1mPTdAxL1VSurHCY6aNebwDGKnpOeNzS7?usp=sharing" target="_blank">Ver carpeta en Google Drive</a>
+
+    <p><strong>Video de Gameplay:</strong></p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/TU_VIDEO_RPG" frameborder="0" allowfullscreen></iframe>
+    <!-- 🔁 Reemplazá TU_VIDEO_RPG con el ID real del video -->
+
+    <p><strong>Informe:</strong></p>
+    <p>El desarrollo se dividió en tres partes: diseño del mapa jugable, escritura de una narrativa simple usando los personajes predeterminados del programa y creación de un combate simple con un enemigo diseñado en Aseprite.</p>
+  </div>
+
+  <!-- Proyecto 3: Unity -->
+  <div class="proyecto">
+    <h2 class="titulo">Proyecto 3: LabDroid (Unity)</h2>
+
+    <p><strong>Descripción:</strong> LabDroid es un juego de plataformas 3D creado en Unity donde controlás un pequeño robot a través de desafíos de salto, movimiento y plataformas móviles. El objetivo es llegar al final sin caer al vacío.</p>
+
+    <p><strong>Carpeta del proyecto:</strong></p>
+    <a href="https://drive.google.com/drive/folders/1k0rkyXl16-isT4h4aCsy2wBxTDNcRTzJ?usp=sharing" target="_blank">Ver carpeta en Google Drive</a>
+
+    <p><strong>Descargar juego:</strong></p>
+    <a href="https://drive.google.com/file/d/1dZStzk4oQ3RMcoNUF0HaVsIfqsjbPV-_/view?usp=sharing" target="_blank">Descargar ejecutable del juego</a>
+
+    <p><strong>Video de Gameplay:</strong></p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/TU_VIDEO_UNITY" frameborder="0" allowfullscreen></iframe>
+    <!-- 🔁 Reemplazá TU_VIDEO_UNITY con el ID real del video -->
+
+    <p><strong>Informe:</strong></p>
+    <p>Este proyecto fue desarrollado en Unity como una introducción al programa. Se construyó una cámara en tercera persona, control de movimiento con rotación del personaje, plataformas móviles y sistema de checkpoint.</p>
+
+    <p><strong>Fragmento de código del controlador de jugador:</strong></p>
+    <pre>
+void Update() {
+    float horizontal = Input.GetAxis("Horizontal");
+    float vertical = Input.GetAxis("Vertical");
+    Vector3 inputDir = new Vector3(horizontal, 0, vertical).normalized;
+
+    if (inputDir.magnitude >= 0.1f) {
+        Vector3 camForward = camTransform.forward;
+        camForward.y = 0; camForward.Normalize();
+        Vector3 camRight = camTransform.right;
+        camRight.y = 0; camRight.Normalize();
+        Vector3 moveDir = camForward * vertical + camRight * horizontal;
+        moveDir.Normalize();
+
+        Quaternion targetRotation = Quaternion.LookRotation(moveDir);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 10f * Time.deltaTime);
+        Vector3 newVelocity = moveDir * speed;
+        newVelocity.y = rb.linearVelocity.y;
+        rb.linearVelocity = newVelocity;
+    }
+}
+    </pre>
+  </div>
+
+</body>
+</html>
